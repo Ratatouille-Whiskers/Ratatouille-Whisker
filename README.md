@@ -29,6 +29,7 @@ Approx. Total Cost:
 | Lead screw/Linear rail |             |          |
 | Extrusion              |             |          |
 
+### Tools
 
 ## [Software Setup](SoftwareSetup.md)
 ## Hardware Setup
