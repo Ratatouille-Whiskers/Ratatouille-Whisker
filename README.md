@@ -30,7 +30,7 @@ Approx. Total Cost:
 | Extrusion              |             |          |
 
 
-## Software Setup
+## [Software Setup](SoftwareSetup.md)
 ## Hardware Setup
 ## User Guide
 ## General Testing
