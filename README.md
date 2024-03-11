@@ -4,17 +4,19 @@
 
 ### Whisker Sensor
 
-| Part                                                    | Description | Quantity |
-| ------------------------------------------------------- | ----------- | -------- |
-| Adafruit Wide-Range Triple-axis Magnetometer - MLX90393 |             | 1        |
-| Raspberry Pi Pico                                       |             | 1        |
-| Filament?                                               |             |          |
-| Screws/Bolts/Nuts?                                      |             |          |
-| Silicone                                                |             |          |
-| Magnet                                                  |             | 1        |
-| Cables?                                                 |             |          |
-| Demoulding Spray?                                       |             |          |
-| Pipette/Containers/etc???                               |             |          |
+| Part                                                    | Description | Quantity |Cost    |Weight|Power Usage |
+| ------------------------------------------------------- | ----------- | -------- |--------|------|------------|
+| Adafruit Wide-Range Triple-axis Magnetometer - MLX90393 |             | 1        |£10-£20 |1.5g |3.3v         |
+| Raspberry Pi Pico                                       |             | 1        |        |      |            |
+| Filament?                                               |             |          |        |      |            |
+| Screws/Bolts/Nuts?                                      |             |          |        |      |            |
+| Silicone                                                |             |          |        |      |            |
+| Magnet                                                  |             | 1        |        |      |            |
+| Cables?                                                 |             |          |        |      |            |
+| Demoulding Spray?                                       |             |          |        |      |            |
+| Pipette/Containers/etc???                               |             |          |        |      |            |
+
+Approx. Total Cost: 
 
 ### Test Setup
 
