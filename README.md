@@ -6,7 +6,7 @@
 
 | Part                                                    | Description | Quantity |Cost    |Weight|Power Usage |
 | ------------------------------------------------------- | ----------- | -------- |--------|------|------------|
-| Adafruit Wide-Range Triple-axis Magnetometer - MLX90393 |[Link to product]([Software Setup](SoftwareSetup.md))| 1        |£10-£20 |1.5g  |3.3v        |
+| Adafruit Wide-Range Triple-axis Magnetometer - MLX90393 |[Link to product](https://www.adafruit.com/product/4022)| 1        |£10-£20 |1.5g  |3.3v        |
 | Raspberry Pi Pico                                       |             | 1        |£4-£12  |4g    |1.8v-5.5v   |
 | Filament?                                               |             |          |        |      |            |
 | Screws/Bolts/Nuts?                                      |             |          |        |      |            |
