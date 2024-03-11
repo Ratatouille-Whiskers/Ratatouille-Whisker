@@ -38,3 +38,5 @@ Approx. Total Cost:
 ## How to Contribute?
 ## Cite Ratatouille-Whisker
 ## License
+## Progress Report Link Test
+Continue on to [Progress Report](ProgressReport.md)
