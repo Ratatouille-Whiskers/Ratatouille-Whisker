@@ -1,7 +1,7 @@
 # Progress report
 
-|Task              |Progress                            |
-|                  |Not-started  |In-Progress  |Finished|
+                       
+|Task              |Not-started  |In-Progress  |Finished|
 |------------------|-------------|-------------|--------|
 |whisker shaft     |     X       |             |        |
 |elastic joint     |     X       |             |        |
