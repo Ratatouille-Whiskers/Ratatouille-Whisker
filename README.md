@@ -11,7 +11,7 @@
 | Filament?                                               |             |          |        |      |            |
 | Screws/Bolts/Nuts?                                      |             |          |        |      |            |
 | Silicone                                                |[Link to product](https://www.bestbuysilicone.com/)|          |        |      |            |
-| Magnet                                                  |             | 1        |        |      |            |
+| Magnet                                                  |[Link to product]()             | 1        |        |      |            |
 | Cables?                                                 |             |          |        |      |            |
 | Demoulding Spray?                                       |             |          |        |      |            |
 | Pipette/Containers/etc???                               |             |          |        |      |            |
