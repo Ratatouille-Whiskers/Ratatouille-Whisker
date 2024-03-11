@@ -3,7 +3,7 @@
 |Task              |Progress                            |
 |------------------|------------------------------------|
 |                  |Not-started  |In-Progress  |Finished|
-|whisker shaft     |     X       |             |        |
+|whisker shaft     |     X       |       X     |        |
 |elastic joint     |     X       |             |        |
 |magnet            |     X       |             |        |
 |magnetometer      |     X       |             |        |
