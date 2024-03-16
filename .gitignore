@@ -2,3 +2,8 @@
 *.FCStd1
 .vscode
 *.3mf
+CAD/Whisker.pov
+CAD/Whisker_meshes.inc
+CAD/Whisker_textures.inc
+CAD/Whisker_user.inc
+CAD/Whisker.ini
