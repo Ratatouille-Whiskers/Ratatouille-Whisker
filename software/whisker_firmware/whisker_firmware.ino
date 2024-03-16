@@ -14,7 +14,7 @@ volatile bool procReady = false;
 
 // To include Z-axis measurements use
 // MLX90393::X_FLAG | MLX90393::Y_FLAG | MLX90393::Z_FLAG
-const uint axisFlags = MLX90393::X_FLAG | MLX90393::Y_FLAG;
+const uint axisFlags = MLX90393::X_FLAG | MLX90393::Y_FLAG | MLX90393::Z_FLAG;
 
 void mlxInterrupt()
 {
@@ -47,12 +47,6 @@ void setup()
 
     mlx.startBurst(axisFlags);
 }
-
-// void loop()
-// {
-//     mlx.readData(&data);
-//     procReady = true;
-// }
 
 void loop()
 {
