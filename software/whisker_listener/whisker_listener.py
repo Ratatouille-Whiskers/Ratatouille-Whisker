@@ -36,6 +36,7 @@ def read_serial_port(port, baud_rate):
 
     except serial.SerialException as e:
         print(f"Error: {e}")
+        ser = serial.Serial(None)
 
     finally:
         if ser.is_open:
