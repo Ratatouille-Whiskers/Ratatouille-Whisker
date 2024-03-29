@@ -1,3 +1,0 @@
-# Ratatouille-Whisker
-
-## Software Setup
