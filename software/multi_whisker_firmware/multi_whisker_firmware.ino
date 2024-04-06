@@ -12,6 +12,9 @@
 #define SDA_pin 16
 #define SCL_pin 17
 
+#define SDA1_pin 18
+#define SCL1_pin 19
+
 MLX90393 mlxA;
 MLX90393 mlxB;
 MLX90393 mlxC;
@@ -74,24 +77,29 @@ void setup()
     Wire.setClock(400000);
     Wire.begin();
 
+    Wire1.setSDA(SDA1_pin);
+    Wire1.setSCL(SCL1_pin);
+    Wire1.setClock(400000);
+    Wire1.begin();
+
     mlxA.begin(0x18, DRDY_pinA, Wire);
     mlxB.begin(0x19, DRDY_pinB, Wire);
-    mlxC.begin(0x1A, DRDY_pinC, Wire);
+    mlxC.begin(0x1A, DRDY_pinC, Wire1);
 
     mlxA.setGainSel(0);
-    mlxA.setOverSampling(1);
+    mlxA.setOverSampling(0);
     mlxA.setDigitalFiltering(2);
     mlxA.setResolution(1, 1, 1);
     mlxA.setTemperatureCompensation(0);
     
     mlxB.setGainSel(0);
-    mlxB.setOverSampling(1);
+    mlxB.setOverSampling(0);
     mlxB.setDigitalFiltering(2);
     mlxB.setResolution(1, 1, 1);
     mlxB.setTemperatureCompensation(0);
     
     mlxC.setGainSel(0);
-    mlxC.setOverSampling(1);
+    mlxC.setOverSampling(0);
     mlxC.setDigitalFiltering(2);
     mlxC.setResolution(1, 1, 1);
     mlxC.setTemperatureCompensation(0);
