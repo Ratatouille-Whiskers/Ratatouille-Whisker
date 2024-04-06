@@ -79,20 +79,20 @@ void setup()
     mlxC.begin(0x1A, DRDY_pinC, Wire);
 
     mlxA.setGainSel(0);
-    mlxA.setOverSampling(1);
-    mlxA.setDigitalFiltering(2);
+    mlxA.setOverSampling(0);
+    mlxA.setDigitalFiltering(0);
     mlxA.setResolution(1, 1, 1);
     mlxA.setTemperatureCompensation(0);
     
     mlxB.setGainSel(0);
-    mlxB.setOverSampling(1);
-    mlxB.setDigitalFiltering(2);
+    mlxB.setOverSampling(0);
+    mlxB.setDigitalFiltering(0);
     mlxB.setResolution(1, 1, 1);
     mlxB.setTemperatureCompensation(0);
     
     mlxC.setGainSel(0);
-    mlxC.setOverSampling(1);
-    mlxC.setDigitalFiltering(2);
+    mlxC.setOverSampling(0);
+    mlxC.setDigitalFiltering(0);
     mlxC.setResolution(1, 1, 1);
     mlxC.setTemperatureCompensation(0);
 
@@ -101,49 +101,51 @@ void setup()
     mlxC.startBurst(axisFlags);
 }
 
+void readDataA(){
+    dataReadyA = false;
+    while(!dataReadyA);
+
+    status_flag = mlxA.readMeasurement(axisFlags,rawDataA);
+    if(mlxA.isOK(status_flag)){
+        dataA = mlxA.convertRaw(rawDataA);
+        procReadyA = true;
+    }
+}
+void readDataB(){
+    dataReadyB = false;
+    while(!dataReadyB);
+
+    status_flag = mlxB.readMeasurement(axisFlags,rawDataB);
+    if(mlxB.isOK(status_flag)){
+        dataB = mlxB.convertRaw(rawDataB);
+        procReadyB = true;
+    }
+}
+void readDataC(){
+    dataReadyC = false;
+    while(!dataReadyC);
+
+    status_flag = mlxC.readMeasurement(axisFlags,rawDataC);
+    if(mlxC.isOK(status_flag)){
+        dataC = mlxC.convertRaw(rawDataC);
+        procReadyC = true;
+    }
+}
+
 void loop()
 {
-    if (dataReadyA && !procReadyA)
-    {
-        dataReadyA = false;
-        // noInterrupts();
-        status_flag = mlxA.readMeasurement(axisFlags,rawDataA);
-        // interrupts();
-        if(status_flag != MLX90393::STATUS_ERROR){
-          dataA = mlxA.convertRaw(rawDataA);
-          procReadyA = true;
-        }
-    }
-    if (dataReadyB && !procReadyB)
-    {
-        dataReadyB = false;
-        // noInterrupts();
-        status_flag = mlxB.readMeasurement(axisFlags,rawDataB);
-        // interrupts();
-        if(status_flag != MLX90393::STATUS_ERROR){
-          dataB = mlxB.convertRaw(rawDataB);
-          procReadyB = true;
-        }
-    }
-    if (dataReadyC && !procReadyC)
-    {
-        dataReadyC = false;
-        // noInterrupts();
-        status_flag = mlxC.readMeasurement(axisFlags,rawDataC);
-        // interrupts();
-        if(status_flag != MLX90393::STATUS_ERROR){
-          dataC = mlxC.convertRaw(rawDataC);
-          procReadyC = true;
-        }
-    }
-
-    // delay(1);
+    // procReady check might be optional
+    // it still crashes...
+    if(!procReadyA) readDataA();
+    if(!procReadyB) readDataB();
+    if(!procReadyC) readDataC();
 }
 
 void loop1()
 {
     if (procReadyA)
     {
+
         if (axisFlags & MLX90393::X_FLAG)
             Serial.printf(">AX: %f\r\n", dataA.x);
 
@@ -154,6 +156,7 @@ void loop1()
             Serial.printf(">AZ: %f\r\n", dataA.z);
 
         procReadyA = false;
+
     }
     if (procReadyB)
     {
