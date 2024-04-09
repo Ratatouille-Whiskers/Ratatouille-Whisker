@@ -45,19 +45,20 @@ Approx. Total Cost:
 
 ## Printing
 
-- You can find a couple of `3mf` project files that you can import into your slicing software (we recommend PrusaSlicer) for loading in all the part geometry required to print a complete whisker assembly kit.
-  - Other slicers can be used but have not been tested.
+- A couple of `3mf` project files can be imported into your slicing software (we recommend PrusaSlicer) for loading in all the part geometry required for printing a complete whisker assembly kit.
+  - Other slicers have not been tested, but others could be used.
   - We provide all the settings for both the Prusa MK3S and Prusa Mini printers
-    - Other printers can be used.
-- Use of 0.4mm nozzles is recommended
+    - Other printers have not been tested but could be used.
+- Using a **0.4mm** nozzles is recommended
   - Smaller nozzles could also be used but would result in slower print times, and the quality of the parts when using these setups has not been tested
-  - nozzles larger than 0.4mm are not recommended due to a reduction in precision when print and could lead to a decrease in print quality
+    - A smaller nozzle would allow for a better result when printing the whisker shafts
+  - Nozzles larger than 0.4mm are not recommended due to a reduction in precision when print and could lead to a decrease in print quality and dimensional accuracy for fitting the parts together
 
-**Note:** You may find that the fit of the `Whisker Base` is too tight in the casting jig (even with the small chamfers in the design aimed to reduce this), and it is therefore recommended to scrape each of the outer edges of the print with a knife (or deburring tool) to debur the edges and prevent sticking. **It is especially important for the areas of the `whisker base` that were on the print bed and in contact with the brim when printing**
+**Note:** You may find that the fit of the `Whisker Base` is too tight in the casting jig (even with the small chamfers in the design aimed to reduce this), and it is therefore recommended to scrape each of the outer edges of the print with a knife (or deburring tool) to deburr the edges and prevent sticking, in addition to the use of mould release materials. **It is especially important for the areas of the `whisker base` that were on the print bed and in contact with the brim when printing**
 
 ### Slicer settings
 
-**_If users already have their own tuned profiles for their own printers, then you can try those settings and use the guidance below for some additional guidance for things that you must be aware of when printing_**
+**_If users already have their own tuned profiles for their own printers, then you can try those settings and use the guidance below for some additional advice for things that you must be aware of when printing_**
 
 We found the default `quality` settings (for 0.4mm nozzles) worked for printing, with only needing to make two changes:
 
@@ -78,5 +79,3 @@ We also used the default PLA settings used for the `Prusament PLA` filament prof
 ## How to Contribute?
 ## Cite Ratatouille-Whisker
 ## License
-## Progress Report Link Test
-Continue on to [Progress Report](ProgressReport.md)
