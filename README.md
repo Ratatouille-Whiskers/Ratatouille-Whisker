@@ -72,7 +72,7 @@ We also used the default PLA settings used for the `Prusament PLA` filament prof
 ## [Software Setup](SoftwareSetup.md)
 ## Hardware Setup
 
-### [Whisker build instructions](./BuildInstructions) 
+### [Whisker build instructions](BuildInstructions.md) 
 Included are easy to follow build instructions and a visual guide for the whisker setup.
 
 ## User Guide
