@@ -81,20 +81,24 @@ The [arduino-MLX90393](https://github.com/Ratatouille-Whiskers/arduino-MLX90393)
 
 A Python script is also provided as a simple serial port listener (using the `pyserial` library) and logger.
 
-### [Step-by-Step Guide](documentation/software-setup.md)
+### [Step-by-Step Guide](documentation/software_setup.md)
 
 ## Hardware Setup
 
-### [Whisker build instructions](BuildInstructions.md) 
-Included are easy to follow build instructions and a visual guide for the whisker setup.
+### Whisker Build Instructions
+
+1. Glue the magnet into the socket.
+2. Place the socket with the magnet attached into the jig. The magnet should face upwards. The pin should slot in easily to secure it in place.
+3. Place the base firmly into the jig.
+4. Prepare your silicone mixture as per the instructions on the packet. Then pour the silicone mixture into the hole around the socket carefully.
+5. Remove the jig carefully, leaving the silicone and the socket in place.
+6. Flip the base right-side-up (see image). Place the whisker into the hole in the socket at the top. This may need a gentle push to fit firmly into place.
+
+![Build Guide Image](documentation/build_guide.png)
 
 ## User Guide
 ## General Testing
 ## Troubleshooting Guide
 ## How to Contribute?
 ## Cite Ratatouille-Whisker
-<<<<<<< HEAD
 ## License
-=======
-## License
->>>>>>> 97ddee097d0ef57228934cbc7962e6cd4842595d
