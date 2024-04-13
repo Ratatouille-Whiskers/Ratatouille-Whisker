@@ -11,6 +11,7 @@ MLX90393::txyz data;
 
 volatile bool dataReady = false;
 volatile bool procReady = false;
+volatile uint8_t status_flag = MLX90393::STATUS_ERROR;
 
 // To include Z-axis measurements use
 // MLX90393::X_FLAG | MLX90393::Y_FLAG | MLX90393::Z_FLAG
@@ -53,9 +54,11 @@ void loop()
     if (dataReady)
     {
         dataReady = false;
-        mlx.readMeasurement(axisFlags,rawData);
-        data = mlx.convertRaw(rawData);
-        procReady = true;
+        status_flag = mlx.readMeasurement(axisFlags,rawData);
+        if(status_flag != MLX90393::STATUS_ERROR){
+          data = mlx.convertRaw(rawData);
+          procReady = true;
+        }
     }
 }
 
