@@ -9,8 +9,8 @@
 #define DRDY_pinB 26
 #define DRDY_pinC 27
 
-#define SDA_pin 16
-#define SCL_pin 17
+#define SDA_pin 4
+#define SCL_pin 5
 
 MLX90393 mlxA;
 MLX90393 mlxB;
