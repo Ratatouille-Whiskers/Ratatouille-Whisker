@@ -6,7 +6,17 @@ Back to  [README](../README.md#software-setup)
 
 ### Step 1: Arduino IDE Setup
 
-Download the official Arduino IDE from [here](https://www.arduino.cc/en/software). Then, follow the installation instructions outlined [here](https://github.com/earlephilhower/arduino-pico) to add the Raspberry Pi Pico board to the boards manager.
+Download the official Arduino IDE from [here](https://www.arduino.cc/en/software).
+
+Open up the Arduino IDE and go to `File > Preferences`.
+In the dialog that pops up, enter the following URL in the "Additional Boards Manager URLs" field:
+```
+https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
+```
+Hit *OK* to close the dialog.
+Go to `Tools > Boards > Board` Manager in the IDE and type "pico" in the search box and select the entry by "Earle F. Philhower".
+
+[For more information visit the original repository [here](https://github.com/earlephilhower/arduino-pico).]
 
 Open `whisker_firmware.ino` under `software/whisker_firmware` using the Arduino IDE. Select Raspberry Pi Pico as the current board.
 
