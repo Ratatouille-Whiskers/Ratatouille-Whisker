@@ -96,6 +96,38 @@ A Python script is also provided as a simple serial port listener (using the `py
 
 ![Build Guide Image](documentation/build_guide.png)
 
+### Sensor Wiring Instructions
+
+The demo firmware (`whisker_firmware.ino`) implicitly indicates a recommended wiring configuration, as seen by:
+
+```c
+#define DRDY_pin 21
+#define SDA_pin 16
+#define SCL_pin 17
+```
+
+In detail, please adhere to the following wiring diagram (format `[SENSOR] -- [PICO]`):
+
+- `VIN -- VBUS`
+- `GND -- GND`
+- `SCL -- GP17`
+- `SDA -- GP17`
+- `INT -- GP21`
+
+Please consult the wiring diagram:
+
+![Sensor Wiring Guide Image](documentation/wiring_guide.png)
+
+---
+
+If you wish to use a STEMMA QT / Qwiic JST SH 4-Pin cable, you need only connect `INT` to `GP21` and change the defines to read:
+
+```c
+#define DRDY_pin 21
+#define SDA_pin 4
+#define SCL_pin 5
+```
+
 ## User Guide
 ## General Testing
 ## Troubleshooting Guide
