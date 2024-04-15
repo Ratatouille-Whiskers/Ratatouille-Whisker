@@ -17,8 +17,6 @@ def read_serial_port(port, baud_rate):
                 timestamp = datetime.now().strftime("%Y-%m-%d_%H:%M:%S.%f")
                 line = ser.readline().decode("utf-8").strip()
 
-                print(line)
-
                 for label in data_labels:
                     if label in line:
                         if not seen_labels:
