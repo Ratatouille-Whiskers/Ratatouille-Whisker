@@ -7,6 +7,7 @@
 
 MLX90393 mlx;
 MLX90393::txyzRaw rawData;
+MLX90393::txyzRaw rawData_offset;
 MLX90393::txyz data;
 
 volatile bool dataReady = false;
@@ -47,6 +48,33 @@ void setup()
     mlx.setTemperatureCompensation(0);
 
     mlx.startBurst(axisFlags);
+
+    delay(500);
+
+    uint16_t i = 0;
+    while (i < 1000)
+    {
+        if (dataReady)
+        {
+            dataReady = false;
+            mlx.readMeasurement(axisFlags, rawData);
+            if(i==0){
+                rawData_offset.x = rawData.x;
+                rawData_offset.y = rawData.y;
+                rawData_offset.z = rawData.z;
+            }
+            rawData_offset.x = (rawData_offset.x >> 1) + (rawData.x >> 1);
+            rawData_offset.y = (rawData_offset.y >> 1) + (rawData.y >> 1);
+            rawData_offset.z = (rawData_offset.z >> 1) + (rawData.z >> 1);
+            Serial.printf(">Xo: %u\r\n", rawData_offset.x);
+            Serial.printf(">Yo: %u\r\n", rawData_offset.y);
+            Serial.printf(">Zo: %u\r\n", rawData_offset.z);
+            Serial.printf(">Xor: %u\r\n", rawData.x);
+            Serial.printf(">Yor: %u\r\n", rawData.y);
+            Serial.printf(">Zor: %u\r\n", rawData.z);
+            i++;
+        }
+    }
 }
 
 void loop()
@@ -54,10 +82,15 @@ void loop()
     if (dataReady)
     {
         dataReady = false;
-        status_flag = mlx.readMeasurement(axisFlags,rawData);
-        if(status_flag != MLX90393::STATUS_ERROR){
-          data = mlx.convertRaw(rawData);
-          procReady = true;
+        status_flag = mlx.readMeasurement(axisFlags, rawData);
+        if (status_flag != MLX90393::STATUS_ERROR)
+        {
+            rawData.x -= rawData_offset.x;
+            rawData.y -= rawData_offset.y;
+            rawData.z -= rawData_offset.z;
+
+            data = mlx.convertRaw(rawData);
+            procReady = true;
         }
     }
 }
