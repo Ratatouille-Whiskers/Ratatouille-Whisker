@@ -69,11 +69,64 @@ We also used the default PLA settings used for the `Prusament PLA` filament prof
 
 - We used this even for non-prusament PLAs with success
 
-## [Software Setup](SoftwareSetup.md)
+## Software Setup
+
+### General Information
+
+Ratatouille-Whisker is powered by a Raspberry Pi Pico. The Pi Pico was chosen for its low cost and dual-core architecture. One core is responsible for receiving and processing data from the magnetometer through I2C, and the other is responsible for transmitting the results over UART to a computer for post-processing.
+
+The Arduino IDE was used to develop the necessary firmware. The Arduino IDE is a convenient wrapper for the Raspberry Pi Pico SDK and enables rapid prototyping. Developing using the Raspberry Pi Pico SDK is also recommended by the Ratatouille-Whisker team but would require additional development time for library integration.
+
+The [arduino-MLX90393](https://github.com/Ratatouille-Whiskers/arduino-MLX90393) library was forked and modified from Teddy Yapo's original library (see relevant [repo](https://github.com/tedyapo/arduino-MLX90393)). The library was modified to allow I2C addresses to be defined manually in the `begin()` function. The modification was necessary as the sensor boards the team was experimenting with featured I2C addresses that did not align with the respective documentation.
+
+A Python script is also provided as a simple serial port listener (using the `pyserial` library) and logger.
+
+### [Step-by-Step Guide](documentation/software_setup.md)
+
 ## Hardware Setup
 
-### [Whisker build instructions](BuildInstructions.md) 
-Included are easy to follow build instructions and a visual guide for the whisker setup.
+### Whisker Build Instructions
+
+1. Glue the magnet into the socket.
+2. Place the socket with the magnet attached into the jig. The magnet should face upwards. The pin should slot in easily to secure it in place.
+3. Place the base firmly into the jig.
+4. Prepare your silicone mixture as per the instructions on the packet. Then pour the silicone mixture into the hole around the socket carefully.
+5. Remove the jig carefully, leaving the silicone and the socket in place.
+6. Flip the base right-side-up (see image). Place the whisker into the hole in the socket at the top. This may need a gentle push to fit firmly into place.
+
+![Build Guide Image](documentation/build_guide.png)
+
+### Sensor Wiring Instructions
+
+The demo firmware (`whisker_firmware.ino`) implicitly indicates a recommended wiring configuration, as seen by:
+
+```c
+#define DRDY_pin 21
+#define SDA_pin 16
+#define SCL_pin 17
+```
+
+In detail, please adhere to the following wiring diagram (format `[SENSOR] -- [PICO]`):
+
+- `VIN -- VBUS`
+- `GND -- GND`
+- `SCL -- GP17`
+- `SDA -- GP17`
+- `INT -- GP21`
+
+Please consult the wiring diagram:
+
+![Sensor Wiring Guide Image](documentation/wiring_guide.png)
+
+---
+
+If you wish to use a STEMMA QT / Qwiic JST SH 4-Pin cable, you need only connect `INT` to `GP21` and change the defines to read:
+
+```c
+#define DRDY_pin 21
+#define SDA_pin 4
+#define SCL_pin 5
+```
 
 ## User Guide
 ## General Testing
