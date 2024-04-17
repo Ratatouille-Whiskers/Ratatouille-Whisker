@@ -163,8 +163,8 @@ void setup()
     delay(500);
 
     offsetDataA();
-    offsetDataB();
-    offsetDataC();
+    // offsetDataB();
+    // offsetDataC();
 
 }
 
@@ -179,7 +179,7 @@ void readDataA(){
         rawDataA.z -= rawDataA_offset.z + 0x8000;
         // dataA = mlxA.convertRaw(rawDataA);
 
-        if(rawDataA.y > 0x8400 || rawDataA.y < 0x7C00){
+        if(rawDataA.x > 0x8500 || rawDataA.x < 0x7B00){
             digitalWrite(TOUCH_pinA, HIGH);
         }
         else{
@@ -200,7 +200,7 @@ void readDataB(){
         rawDataB.z -= rawDataB_offset.z + 0x8000;
         // dataB = mlxB.convertRaw(rawDataB);
 
-        if(rawDataB.y > 0x8400 || rawDataB.y < 0x7C00){
+        if(rawDataB.x > 0x8400 || rawDataB.x < 0x7C00){
             digitalWrite(TOUCH_pinB, HIGH);
         }
         else{
@@ -237,8 +237,8 @@ void loop()
     // procReady check might be optional
     // it still crashes...
     if(!procReadyA) readDataA();
-    if(!procReadyB) readDataB();
-    if(!procReadyC) readDataC();
+    // if(!procReadyB) readDataB();
+    // if(!procReadyC) readDataC();
 }
 
 void loop1()
