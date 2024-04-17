@@ -9,7 +9,7 @@ Servo servo; // create servo object
 bool rev = false;
 int sweepDelay = DEFAULT_SWEEP_DELAY; // use to control the speed of the sweep
 
-int pos;
+int pos = 120;
 
 // interrupt that will reverse the direction of the sweep when triggered so that we
 // avoid damaging the whisker
@@ -33,7 +33,7 @@ void loop()
   sweepDelay = DEFAULT_SWEEP_DELAY;
 
   // Direction A
-  for (pos = pos; pos <= 180; pos += 1)
+  for (pos = pos; pos <= 120; pos += 1)
   {
     // check if interrupt has been triggered, and reverse direction if it has
     if (rev)
@@ -47,7 +47,7 @@ void loop()
   }
 
   // Direction B
-  for (pos = pos; pos >= 0; pos -= 1)
+  for (pos = pos; pos >= 50; pos -= 1)
   {
     // check if interrupt has been triggered, and reverse direction if it has
     if (rev)
