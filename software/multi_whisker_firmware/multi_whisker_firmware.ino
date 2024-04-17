@@ -44,6 +44,7 @@ volatile uint8_t status_flag = MLX90393::STATUS_ERROR;
 // MLX90393::X_FLAG | MLX90393::Y_FLAG | MLX90393::Z_FLAG
 // const uint axisFlags = MLX90393::X_FLAG | MLX90393::Y_FLAG | MLX90393::Z_FLAG;
 const uint axisFlags = MLX90393::X_FLAG | MLX90393::Y_FLAG;
+// const uint axisFlags = MLX90393::X_FLAG;
 
 void mlxInterruptA()
 {
@@ -109,10 +110,10 @@ void setup()
 {
     // Serial.begin(115200);
     Serial.begin(460800);
-    while (!Serial)
-    {
-        delay(10);
-    }
+    // while (!Serial)
+    // {
+    //     delay(10);
+    // }
 
     pinMode(DRDY_pinA, INPUT_PULLDOWN);
     pinMode(DRDY_pinB, INPUT_PULLDOWN);
@@ -141,19 +142,19 @@ void setup()
     mlxA.setGainSel(0);
     mlxA.setOverSampling(0);
     mlxA.setDigitalFiltering(0);
-    mlxA.setResolution(3, 3, 3);
+    mlxA.setResolution(1,1,1);
     mlxA.setTemperatureCompensation(0);
     
     mlxB.setGainSel(0);
     mlxB.setOverSampling(0);
     mlxB.setDigitalFiltering(0);
-    mlxB.setResolution(3, 3, 3);
+    mlxB.setResolution(1,1,1);
     mlxB.setTemperatureCompensation(0);
     
     mlxC.setGainSel(0);
     mlxC.setOverSampling(0);
     mlxC.setDigitalFiltering(0);
-    mlxC.setResolution(3, 3, 3);
+    mlxC.setResolution(1,1,1);
     mlxC.setTemperatureCompensation(0);
 
     mlxA.startBurst(axisFlags);
@@ -174,12 +175,16 @@ void readDataA(){
 
     status_flag = mlxA.readMeasurement(axisFlags,rawDataA);
     if(mlxA.isOK(status_flag)){
+        // rawDataA_offset.x = (rawDataA_offset.x >> 1) + (rawDataA.x >> 1);
+        // rawDataA_offset.y = (rawDataA_offset.y >> 1) + (rawDataA.y >> 1);
+        // rawDataA_offset.z = (rawDataA_offset.z >> 1) + (rawDataA.z >> 1);
+
         rawDataA.x -= rawDataA_offset.x + 0x8000;
         rawDataA.y -= rawDataA_offset.y + 0x8000;
         rawDataA.z -= rawDataA_offset.z + 0x8000;
         // dataA = mlxA.convertRaw(rawDataA);
 
-        if(rawDataA.x > 0x8500 || rawDataA.x < 0x7B00){
+        if(rawDataA.x > 0x8400 || rawDataA.x < 0x7C00){
             digitalWrite(TOUCH_pinA, HIGH);
         }
         else{

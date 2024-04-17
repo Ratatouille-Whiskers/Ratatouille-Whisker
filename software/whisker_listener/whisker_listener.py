@@ -8,7 +8,7 @@ def read_serial_port(port, baud_rate):
         ser = serial.Serial(port, baud_rate)
         print(f"Reading from serial port {port} at {baud_rate} baud rate...\n")
 
-        data_labels = ["AX", "AY", "AZ", "BX", "BY", "BZ", "CX", "CY", "CZ"]
+        data_labels = ["AX", "AY"]#, "AZ", "BX", "BY", "BZ", "CX", "CY", "CZ"]#,"X","Y","Z"]
         seen_labels = set()
 
         timestamp = datetime.now().strftime("%Y-%m-%d_%H_%M_%S")
@@ -16,6 +16,9 @@ def read_serial_port(port, baud_rate):
             while True:
                 timestamp = datetime.now().strftime("%Y-%m-%d_%H:%M:%S.%f")
                 line = ser.readline().decode("utf-8").strip()
+
+                if not seen_labels and data_labels[0] not in line:
+                    continue
 
                 for label in data_labels:
                     if label in line:
