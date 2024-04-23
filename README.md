@@ -9,7 +9,7 @@
 | 3-axis Magnetometer | [Adafruit Wide-Range Triple-axis Magnetometer - MLX90393](https://www.adafruit.com/product/4022)                                                                             | 1        | £10-£20 | 1.5g    | 3.3v        |
 | Microcontroller     | [Raspberry Pi Pico](https://www.raspberrypi.com/products/raspberry-pi-pico/)                                                                                                 | 1        | £4-£12  | 4g      | 1.8v-5.5v   |
 | 3D Printer Filament | [eSun PLA 1kg Spool](https://esun3dstore.com/collections/pla/products/esun-epla-lite-1-75mm-3d-filament-1kg)                                                                 | 1        | £ 18    | 1kg     | -           |
-| Silicone            | [BBDINO Super Elastic Silicone](https://www.bestbuysilicone.com/collections/all-bbdino-product/products/bbdino-super-elastic-silicone-mold-making-rubber-platinum-trial-kit) | 1        | £ 28    | 3x 300g | -           |
+| Silicone            | [BBDINO Super Elastic Silicone](https://www.bestbuysilicone.com/collections/all-bbdino-product/products/bbdino-super-elastic-silicone-mold-making-rubber-platinum-trial-kit) | 1        | £ 28    | 2x 300g | -           |
 | Magnet              | [1 Tube (10 disks) of 5mm x 2mm Magent](https://uk.rs-online.com/web/p/neodymium-magnets/2192248)                                                                            | 1        | £8      |         | -           |
 | Demolding Agents    | [Demoulding Vaseline](https://en.pebeo.com/catalogue/vaseline-de-demoulage-gedeo)                                                                                            | 1        | £6      | 75ml    | -           |
 
