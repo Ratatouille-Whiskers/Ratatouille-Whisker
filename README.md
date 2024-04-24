@@ -2,20 +2,16 @@
 
 ## Bill of Materials
 
-### Whisker Sensor
+| Part                | Description                                                                                                                                                                  | Quantity | Cost    |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
+| 3-axis Magnetometer | [Adafruit Wide-Range Triple-axis Magnetometer - MLX90393](https://www.adafruit.com/product/4022)                                                                             | 1        | £10-£20 |
+| Microcontroller     | [Raspberry Pi Pico](https://www.raspberrypi.com/products/raspberry-pi-pico/)                                                                                                 | 1        | £4-£12  |
+| 3D Printer Filament | [eSun PLA 1kg Spool](https://esun3dstore.com/collections/pla/products/esun-epla-lite-1-75mm-3d-filament-1kg)                                                                 | 1        | £18     |
+| Silicone            | [BBDINO Super Elastic Silicone](https://www.bestbuysilicone.com/collections/all-bbdino-product/products/bbdino-super-elastic-silicone-mold-making-rubber-platinum-trial-kit) | 1        | £28     |
+| Magnet              | [1 Tube (10 disks) of 5mm x 2mm Magnet](https://uk.rs-online.com/web/p/neodymium-magnets/2192248)                                                                            | 1        | £8      |
+| Demolding Agents    | [Demoulding Vaseline](https://en.pebeo.com/catalogue/vaseline-de-demoulage-gedeo)                                                                                            | 1        | £6      |
 
-| Part                | Description                                                                                                                                                                  | Quantity | Cost    | Weight  | Power Usage |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- | ------- | ----------- |
-| 3-axis Magnetometer | [Adafruit Wide-Range Triple-axis Magnetometer - MLX90393](https://www.adafruit.com/product/4022)                                                                             | 1        | £10-£20 | 1.5g    | 3.3v        |
-| Microcontroller     | [Raspberry Pi Pico](https://www.raspberrypi.com/products/raspberry-pi-pico/)                                                                                                 | 1        | £4-£12  | 4g      | 1.8v-5.5v   |
-| 3D Printer Filament | [eSun PLA 1kg Spool](https://esun3dstore.com/collections/pla/products/esun-epla-lite-1-75mm-3d-filament-1kg)                                                                 | 1        | £ 18    | 1kg     | -           |
-| Silicone            | [BBDINO Super Elastic Silicone](https://www.bestbuysilicone.com/collections/all-bbdino-product/products/bbdino-super-elastic-silicone-mold-making-rubber-platinum-trial-kit) | 1        | £ 28    | 2x 300g | -           |
-| Magnet              | [1 Tube (10 disks) of 5mm x 2mm Magent](https://uk.rs-online.com/web/p/neodymium-magnets/2192248)                                                                            | 1        | £8      |         | -           |
-| Demolding Agents    | [Demoulding Vaseline](https://en.pebeo.com/catalogue/vaseline-de-demoulage-gedeo)                                                                                            | 1        | £6      | 75ml    | -           |
-
-Approx. Total Cost: 
-
-### Test Setup
+<!-- ### Test Setup
 
 | Part                   | Description                                                                  | Quantity |
 | ---------------------- | ---------------------------------------------------------------------------- | -------- |
@@ -24,22 +20,17 @@ Approx. Total Cost:
 | Screws/Bolts/Nuts?     |                                                                              |          |
 | Cables?                |                                                                              |          |
 | Lead screw/Linear rail |                                                                              |          |
-| Extrusion              |                                                                              |          |
+| Extrusion              |                                                                              |          | -->
 
-### Tools
-<!-- Should tools be under BOM or as an independent section? -->
+## Tools & Equipment
 
-#### Required
-
-- 3D Printer (0.4mm nozzel)
-- Soldering iron
-- Craft Knife (or equivalent)
-
-#### Recommended
-
-- Prusaslicer (2.7.0 or higher)
-  - 3d printer slicer
-- Deburring Tool
+- Required
+  - 3D Printer (0.4mm nozzle)
+  - Soldering Iron
+  - Craft Knife (or equivalent)
+- Recommended
+  - Prusaslicer (2.7.0 or higher)
+  - Deburring Tool
 
 ## Software Setup
 
@@ -53,39 +44,73 @@ The [arduino-MLX90393](https://github.com/Ratatouille-Whiskers/arduino-MLX90393)
 
 A Python script is also provided as a simple serial port listener (using the `pyserial` library) and logger.
 
-### [Step-by-Step Guide](documentation/software_setup.md)
+### Step 1: Arduino IDE Setup
+
+Download the official Arduino IDE from [here](https://www.arduino.cc/en/software).
+
+Open up the Arduino IDE and go to `File > Preferences`.
+In the dialog that pops up, enter the following URL in the "Additional Boards Manager URLs" field:
+```
+https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
+```
+Hit *OK* to close the dialog.
+Go to `Tools > Boards > Board` Manager in the IDE and type "pico" in the search box and select the entry by "Earle F. Philhower".
+
+[For more information visit the original repository [here](https://github.com/earlephilhower/arduino-pico).]
+
+Open `whisker_firmware.ino` under `software/whisker_firmware` using the Arduino IDE. Select Raspberry Pi Pico as the current board.
+
+Compilation will fail as `MLX90393.h` does not exist.
+
+### Step 2: Install the MLX90393 Library
+
+Go to the library's repository ([here](https://github.com/Ratatouille-Whiskers/arduino-MLX90393)) and click on `Code > Download ZIP`. The library can be installed following the instructions listed [here](https://support.arduino.cc/hc/en-us/articles/5145457742236-Add-libraries-to-Arduino-IDE). Skip to the *Importing a .zip Library* and *Manual installation* sections.
+
+### Step 3: Upload the Code
+
+To upload the sketch, you will need to hold the BOOTSEL button down while plugging in the Raspberry Pi Pico to your computer. Then hit the upload button and the sketch should be transferred and start to run. After the first upload, this may not be necessary as the arduino-pico core has auto-reset support.
+
+### Step 4: Inspect Serial Monitor
+
+In the Arduino IDE, click on `Tools > Serial Monitor` and confirm that values are being printed on the screen.
 
 ## Hardware Setup
 
 ### Printing Guide
 
-- A couple of `3mf` project files can be imported into your slicing software (we recommend PrusaSlicer) for loading in all the part geometry required for printing a complete whisker assembly kit.
-  - Other slicers have not been tested, but others could be used.
-  - We provide all the settings for both the Prusa MK3S and Prusa Mini printers
-    - Other printers have not been tested but could be used.
-- Using a **0.4mm** nozzle is recommended
-  - Smaller nozzles can also be used but would result in slower print times, and the quality of the parts when using these setups has not been tested
-    - A smaller nozzle would allow for a better result when printing the whisker shafts
-  - Nozzles larger than 0.4mm are not recommended due to a reduction in precision when print and could lead to a decrease in print quality and dimensional accuracy for fitting the parts together
+> **`3mf`** project files can be imported directly into your slicing software (we recommend **PrusaSlicer**) for loading in all the part geometries required for printing a complete whisker assembly kit.
+
+Other slicers have not been tested.
+
+> We provide all the **settings** for both the **Prusa MK3S** and **Prusa Mini** printers
+
+Other printers have not been tested.
+
+> Using a **0.4mm nozzle** is recommended.
+
+A smaller nozzle would allow for a better result when printing the whisker shafts - but would result in higher print times.
+Smaller nozzles have not been tested.
+Please avoid using nozzles larger than 0.4mm to ensure optimal precision and detail.
 
 **Note:** You may find that the fit of the `Whisker Base` is too tight in the casting jig (even with the small chamfers in the design aimed to reduce this), and it is therefore recommended to scrape each of the outer edges of the print with a knife (or deburring tool) to deburr the edges and prevent sticking, in addition to the use of mold release agent. **It is especially important for the areas of the `whisker base` that were on the print bed and in contact with the brim when printing**
 
 #### Slicer settings
 
-**_If users already have their own tuned profiles for their own printers, then you can try those settings and use the guidance below for some additional advice for things that you must be aware of when printing_**
+**_If users already have their own tuned profiles for their printers, then they can try those settings and use the guidance below for some additional advice on printing_**
 
-We found the default `quality` settings (for 0.4mm nozzles) worked for printing, with only needing to make two changes:
+We found the default `quality` settings (for 0.4mm nozzles) worked for printing, only required two modifications:
 
 1. The `Whisker Shaft` should be printed with a **0.1mm** layer height.
-2. Set `XY Compensation` (or your slicer's equivalent setting) to a starting value of `-0.1mm`.
-   - This is to ensure the holes in the parts are printed with better dimensional accuracy when sliced, improving the fit of parts in each (e.g. Whisker Shaft into the whisker Socket)
-   - The value of `-0.1mm` is just a recommended starting point when using Prusaslicer and may need tuning for your specific printer
+2. Set `XY Compensation` (or your slicer's equivalent setting) to a starting value of **-0.1mm**.
+   - This is to ensure the holes in the parts are printed with better dimensional accuracy when sliced, improving the fit of parts in each (e.g., Whisker Shaft into the Whisker Socket).
+   - The value of **-0.1mm** is just a recommended starting point when using Prusaslicer, and you may need tuning for your specific printer.
 
-We also used the default PLA settings used for the `Prusament PLA` filament profile
-
-- We used this even for non-prusament PLAs with success
+We also used the default PLA settings used for the `Prusament PLA` filament profile.
+We used this even for non-prusament PLAs with success
 
 ### Whisker Build Instructions
+
+![Build Guide Image](documentation/build_guide.png)
 
 1. Glue the magnet into the socket.
 2. Place the socket with the magnet attached into the jig. The magnet should face upwards. The pin should slot in easily to secure it in place.
@@ -93,8 +118,6 @@ We also used the default PLA settings used for the `Prusament PLA` filament prof
 4. Prepare your silicone mixture as per the instructions on the packet. Then pour the silicone mixture into the hole around the socket carefully.
 5. Remove the jig carefully, leaving the silicone and the socket in place.
 6. Flip the base right-side-up (see image). Place the whisker into the hole in the socket at the top. This may need a gentle push to fit firmly into place.
-
-![Build Guide Image](documentation/build_guide.png)
 
 ### Sensor Wiring Instructions
 
@@ -129,8 +152,43 @@ If you wish to use a STEMMA QT / Qwiic JST SH 4-Pin cable, you need only connect
 ```
 
 ## User Guide
+
+### Logging Data
+
+You are free to use the Python-based script to collect data and save them in a CSV format with timestamps.
+Apart from installing Python (from [here](https://www.python.org/)), you also need to install pyserial (see the [repo](https://github.com/pyserial/pyserial)) using pip:
+```
+pip install pyserial
+```
+
+You can now navigate to `software/whisker_listener` and run `python whisker_listener.py -h` to be greeted with useful instructions on how to use the script:
+
+```
+usage: whisker_listener.py [-h] [-b BAUD_RATE] serial_port
+
+Read data from a serial port.
+
+positional arguments:
+  serial_port   Serial port name (e.g., COM3 or /dev/ttyACM0)
+
+options:
+  -h, --help    show this help message and exit
+  -b BAUD_RATE  Baud rate (default is 115200)
+```
+
+On Linux systems, the data can be logged using:
+```
+python whisker_listener.py /dev/ttyACM0
+```
+
 ## General Testing
 ## Troubleshooting Guide
 ## How to Contribute?
 ## Cite Ratatouille-Whisker
+
+```
+TBA
+```
+
 ## License
+This work is provided under GPL license for the software source code and CERN-OHL-W license for the hardware design and build instructions.
