@@ -85,7 +85,7 @@ Please avoid using nozzles larger than 0.4mm to ensure optimal precision and det
 
 #### Slicer settings
 
-**_If users already have their own tuned profiles for their printers, then they can try those settings and use the guidance below for some additional advice on printing_**
+***If users already have their own tuned profiles for their printers, then they can try those settings and use the guidance below for some additional advice on printing***
 
 We found the default `quality` settings (for 0.4mm nozzles) worked for printing, only required two modifications:
 
@@ -93,11 +93,23 @@ We found the default `quality` settings (for 0.4mm nozzles) worked for printing,
 2. Set `XY Compensation` (or your slicer's equivalent setting) to a starting value of **-0.1mm**.
    - This is to ensure the holes in the parts are printed with better dimensional accuracy when sliced, improving the fit of parts in each (e.g., Whisker Shaft into the Whisker Socket).
    - The value of **-0.1mm** is just a recommended starting point when using Prusaslicer, and you may need tuning for your specific printer.
+     - **DISCLAIMER: DO NOT TAKE THIS TUNING APPROACH AS 'GOOD' ADVISE ON TUNING THIS SETTING FOR ALL PRINTS. THIS IS ONLY SUGGEST FOR PRINTING THESE PARTS AND MAY NOT HELP WITH ALL PRINTS.**.
+     - **NOTE: You will need a method of accuracting measure the inside diameter of an object. We RECOMMEND using a set of VERNIER CALLIPERS**.
+     1. First print a `Whisker Bearing Casting Jig`
+     2. Next print a `Whisker Socket`
+     3. Measure the size of the two holes of the socket part
+        - The Smaller one should be `3mm`
+        - The Larger one should be `5mm`
+     4. If the measurements are as close to "perfect" to the *true* values and the socket has a snug, but loose enough, fit with the casting jig that it can be easily removed then you should be fine with not tuning the compensation.
+     5. If the measurement is two small then (in PrusaSlicer) set the `XY Size Compensation` to the negative of the difference between the dimensions. If too large then set it to the positive of the difference between the dimensions.
+        - Example: Small hole measure `2.9mm`, $3-2.9=0.1$, therefore we set the compensation value to `-0.1mm`
+     6. Reprint the socket part again and measure the holes.
+     7. Repeat this till both holes are as close to *true* as you can possibly and the socket has a snug, but loose enough, fit with the casting jig that it can be easily removed then you should be fine with not tuning the compensation.
    - [!PrusaSlicer_Location_for_XY_Compenstation](/Docs/images/XY_Compensation_page_Prusaslicer.png)
       1. Navigate to the `Print Settings` Tab
       2. Enable `Expert` mode in the top write of the page
       3. From the navigation bar on the left got to `Advanced`
-      4. Scroll down to till you get to the `Slicing` section where you will find `XY Size Compensation`. Here you can enter our recommended starting values of **-0.1mm** for printing the parts
+      4. Scroll down to till you get to the `Slicing` section where you will find `XY Size Compensation`. Here you can enter our recommended starting values of **-0.1mm** (or a value found for you printer) for printing the parts
 
 We also used the default PLA settings used for the `Prusament PLA` filament profile.
 This was even used on non-prusament PLAs successfully.
