@@ -11,17 +11,6 @@
 | Magnet              | [1 Tube (10 disks) of 5mm x 2mm Magnet](https://uk.rs-online.com/web/p/neodymium-magnets/2192248)                                                                            | 1        | £8      |
 | Demolding Agents    | [Demoulding Vaseline](https://en.pebeo.com/catalogue/vaseline-de-demoulage-gedeo)                                                                                            | 1        | £6      |
 
-<!-- ### Test Setup
-
-| Part                   | Description                                                                  | Quantity |
-| ---------------------- | ---------------------------------------------------------------------------- | -------- |
-| PC/SBC                 |                                                                              | 1        |
-| Microcontroller        | [Raspberry Pi Pico](https://www.raspberrypi.com/products/raspberry-pi-pico/) | 1        |
-| Screws/Bolts/Nuts?     |                                                                              |          |
-| Cables?                |                                                                              |          |
-| Lead screw/Linear rail |                                                                              |          |
-| Extrusion              |                                                                              |          | -->
-
 ## Tools & Equipment
 
 - Required
@@ -104,11 +93,23 @@ We found the default `quality` settings (for 0.4mm nozzles) worked for printing,
 2. Set `XY Compensation` (or your slicer's equivalent setting) to a starting value of **-0.1mm**.
    - This is to ensure the holes in the parts are printed with better dimensional accuracy when sliced, improving the fit of parts in each (e.g., Whisker Shaft into the Whisker Socket).
    - The value of **-0.1mm** is just a recommended starting point when using Prusaslicer, and you may need tuning for your specific printer.
+   - [!PrusaSlicer_Location_for_XY_Compenstation](/Docs/images/XY_Compensation_page_Prusaslicer.png)
+      1. Navigate to the `Print Settings` Tab
+      2. Enable `Expert` mode in the top write of the page
+      3. From the navigation bar on the left got to `Advanced`
+      4. Scroll down to till you get to the `Slicing` section where you will find `XY Size Compensation`. Here you can enter our recommended starting values of **-0.1mm** for printing the parts
 
 We also used the default PLA settings used for the `Prusament PLA` filament profile.
-We used this even for non-prusament PLAs with success
+This was even used on non-prusament PLAs successfully.
 
 ### Whisker Build Instructions
+
+To Build the whisker make sure you have printed:
+
+- 1 Whisker Base
+- 1 Whisker Socket
+- 1 Whisker Shaft
+- 1 Whisker Bearing Casting Jig
 
 ![Build Guide Image](documentation/build_guide.png)
 
