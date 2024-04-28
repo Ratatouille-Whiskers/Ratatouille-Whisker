@@ -201,9 +201,12 @@ On Linux systems, the data can be logged using:
 python whisker_listener.py /dev/ttyACM0
 ```
 
-## General Testing
-## Troubleshooting Guide
+<!-- ## General Testing
+## Troubleshooting Guide -->
 ## How to Contribute?
+
+Feel free to fork this repo and submit pull requests!
+
 ## Cite Ratatouille-Whisker
 
 ```
