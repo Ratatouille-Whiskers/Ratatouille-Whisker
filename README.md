@@ -205,6 +205,13 @@ python whisker_listener.py /dev/ttyACM0
 
 <!-- ## General Testing
 ## Troubleshooting Guide -->
+## Related Work
+
+[Calibration Platform](https://github.com/FoR-Group1/OpenWhisker/tree/main/calibration_platform) - 3D Printer Based Open Source Calibration
+Platform for Whisker Sensors.
+
+**DISCLAIMER: This platform has not been tested with the design presented in this repo, therefore modification may be required to use it for this design.**
+
 ## How to Contribute?
 
 Feel free to fork this repo and submit pull requests!
