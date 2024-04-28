@@ -1,5 +1,7 @@
 # Ratatouille-Whisker
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11080462.svg)](https://doi.org/10.5281/zenodo.11080462)
+
 ## Bill of Materials
 
 | Part                | Description                                                                                                                                                                  | Quantity | Cost    |
@@ -208,6 +210,10 @@ python whisker_listener.py /dev/ttyACM0
 Feel free to fork this repo and submit pull requests!
 
 ## Cite Ratatouille-Whisker
+
+Click `Cite this repository` in the sidebar to cite the most recent version of this repo.
+
+Alternatively, feel free to cite our publication in TAROS 2024:
 
 ```
 TBA
