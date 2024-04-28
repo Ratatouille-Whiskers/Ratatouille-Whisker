@@ -81,38 +81,45 @@ A smaller nozzle would allow for a better result when printing the whisker shaft
 Smaller nozzles have not been tested.
 Please avoid using nozzles larger than 0.4mm to ensure optimal precision and detail.
 
-**Note:** You may find that the fit of the `Whisker Base` is too tight in the casting jig (even with the small chamfers in the design aimed to reduce this), and it is therefore recommended to scrape each of the outer edges of the print with a knife (or deburring tool) to deburr the edges and prevent sticking, in addition to the use of mold release agent. **It is especially important for the areas of the `whisker base` that were on the print bed and in contact with the brim when printing**
+**Note:** You may find that the fit of the `Whisker Base` is too tight in the casting jig (even with the small chamfers in the design aimed to reduce this), and it is therefore recommended to scrape each of the outer edges of the print with a knife (or deburring tool) to deburr the edges and prevent sticking, in addition to the use of mold release agent. **It is especially important for the areas of the `Whisker Base` that were on the print bed and in contact with the brim when printing.**
 
-#### Slicer settings
+#### Slicer Settings
 
-***If users already have their own tuned profiles for their printers, then they can try those settings and use the guidance below for some additional advice on printing***
+***If users already have their own tuned profiles for their printers, then they can try those settings and use the guidance below for some additional advice on printing.***
 
-We found the default `quality` settings (for 0.4mm nozzles) worked for printing, only required two modifications:
+We found the default `quality` settings (for 0.4mm nozzles) worked for printing, only requiring two modifications:
 
-1. The `Whisker Shaft` should be printed with a **0.1mm** layer height.
-2. Set `XY Compensation` (or your slicer's equivalent setting) to a starting value of **-0.1mm**.
-   - This is to ensure the holes in the parts are printed with better dimensional accuracy when sliced, improving the fit of parts in each (e.g., Whisker Shaft into the Whisker Socket).
-   - The value of **-0.1mm** is just a recommended starting point when using Prusaslicer, and you may need tuning for your specific printer.
-     - **DISCLAIMER: DO NOT TAKE THIS TUNING APPROACH AS 'GOOD' ADVISE ON TUNING THIS SETTING FOR ALL PRINTS. THIS IS ONLY SUGGEST FOR PRINTING THESE PARTS AND MAY NOT HELP WITH ALL PRINTS.**.
-     - **NOTE: You will need a method of accuracting measure the inside diameter of an object. We RECOMMEND using a set of VERNIER CALLIPERS**.
-     1. First print a `Whisker Bearing Casting Jig`
-     2. Next print a `Whisker Socket`
-     3. Measure the size of the two holes of the socket part
-        - The Smaller one should be `3mm`
-        - The Larger one should be `5mm`
-     4. If the measurements are as close to "perfect" to the *true* values and the socket has a snug, but loose enough, fit with the casting jig that it can be easily removed then you should be fine with not tuning the compensation.
-     5. If the measurement is two small then (in PrusaSlicer) set the `XY Size Compensation` to the negative of the difference between the dimensions. If too large then set it to the positive of the difference between the dimensions.
-        - Example: Small hole measure `2.9mm`, $3-2.9=0.1$, therefore we set the compensation value to `-0.1mm`
-     6. Reprint the socket part again and measure the holes.
-     7. Repeat this till both holes are as close to *true* as you can possibly and the socket has a snug, but loose enough, fit with the casting jig that it can be easily removed then you should be fine with not tuning the compensation.
-   - [!PrusaSlicer_Location_for_XY_Compenstation](/Docs/images/XY_Compensation_page_Prusaslicer.png)
-      1. Navigate to the `Print Settings` Tab
-      2. Enable `Expert` mode in the top write of the page
-      3. From the navigation bar on the left got to `Advanced`
-      4. Scroll down to till you get to the `Slicing` section where you will find `XY Size Compensation`. Here you can enter our recommended starting values of **-0.1mm** (or a value found for you printer) for printing the parts
+> The `Whisker Shaft` should be printed with a **0.1mm** layer height.
 
-We also used the default PLA settings used for the `Prusament PLA` filament profile.
-This was even used on non-prusament PLAs successfully.
+> Set `XY Size Compensation`, or your slicer's equivalent setting, to **-0.1mm** - recommended starting point for tuning.
+
+`XY Size Compensation` ensures the holes in the parts are printed with better dimensional accuracy when sliced, improving the fit of parts in each (e.g., Whisker Shaft into the Whisker Socket). 
+
+**DISCLAIMER: DO NOT TAKE THIS TUNING APPROACH AS 'GOOD' ADVICE ON TUNING THIS SETTING FOR ALL PRINTS. IT IS ONLY SUGGESTED FOR PRINTING THESE PARTS AND MAY NOT HELP WITH ALL PRINTS.**
+
+**NOTE: You will need a method to measure an object's inside diameter accurately. We recommend using a set of vernier calipers.**
+
+**Setting `XY Size Compensation` in PrusaSlicer:**
+
+1. Navigate to the `Print Settings` Tab
+2. Enable `Expert` mode in the top write of the page
+3. From the navigation bar on the left got to `Advanced`
+4. Scroll down to till you get to the `Slicing` section where you will find `XY Size Compensation`.
+
+![PrusaSlicer XY Compenstation](documentation/xy_compensation_prusaslicer.png)
+
+1. Print a `Whisker Bearing Casting Jig`
+2. Print a `Whisker Socket`
+3. Ensure the smaller hole of the `Whisker Socket` is approx. `3mm` in diameter
+4. Ensure the larger hole of the `Whisker Socket` is approx. `5mm` in diameter
+<!-- 5. If the measurements are as close to "perfect" to the *true* values and the socket has a snug, but loose enough, fit with the casting jig that it can be easily removed then you should be fine with not tuning the compensation. -->
+5. Set `XY Size Compensation` to `Measured - Expected` 
+   - Example: measured diameter `2.9mm`, expected diameter `3.0mm`, therefore we set the compensation value to `-0.1mm`
+6. Ensure `Whisker Bearing Casting Jig` has a snug fit
+<!-- 7. Repeat this till both holes are as close to *true* as you can possibly and the socket has a snug, but loose enough, fit with the casting jig that it can be easily removed then you should be fine with not tuning the compensation. -->
+7. Repeat steps 1-6 until you achieve high dimensional accuracy and a snug fit
+
+The default PLA settings of the `Prusament PLA` filament profile may be used for all prints.
 
 ### Whisker Build Instructions
 
