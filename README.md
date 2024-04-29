@@ -89,7 +89,7 @@ Please avoid using nozzles larger than 0.4mm to ensure optimal precision and det
 
 ***If users already have their own tuned profiles for their printers, then they can try those settings and use the guidance below for some additional advice on printing.***
 
-We found the default `quality` settings (for 0.4mm nozzles) worked for printing, only requiring two modifications:
+We found the default `quality` settings (for 0.4mm nozzles) with supports enabled (tree/organics are fine to use too, and can even result in a cleaner result) worked for printing, only requiring two modifications:
 
 > The `Whisker Shaft` should be printed with a **0.1mm** layer height.
 
