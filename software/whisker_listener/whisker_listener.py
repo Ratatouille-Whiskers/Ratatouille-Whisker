@@ -8,31 +8,33 @@ def read_serial_port(port, baud_rate):
         ser = serial.Serial(port, baud_rate)
         print(f"Reading from serial port {port} at {baud_rate} baud rate...\n")
 
-        data_labels = ["X", "Y", "Z"]
-        seen_labels = set()
+        x_val = None
+        y_val = None
+        z_val = None
 
         timestamp = datetime.now().strftime("%Y-%m-%d_%H_%M_%S")
         with open(f"whisker_{timestamp}.csv", "a") as datafile:
+            datafile.write("timestamp,x,y,z\n")
             while True:
                 timestamp = datetime.now().strftime("%Y-%m-%d_%H:%M:%S.%f")
                 line = ser.readline().decode("utf-8").strip()
 
-                for label in data_labels:
-                    if label in line:
-                        if not seen_labels:
-                            datafile.write(f"{timestamp}")
+                if "X" in line:
+                    x_val = line.split(" ")[-1]
 
-                        if label in seen_labels:
-                            datafile.write(f"\n")
-                            seen_labels.clear()
+                if x_val is None: continue
 
-                            break
+                if "Y" in line:
+                    y_val = line.split(" ")[-1]
 
-                        line = line.split(" ")[-1]
-                        datafile.write(f",{line}")
-                        seen_labels.add(label)
+                if y_val is None: continue
 
-                        break
+                if "Z" in line:
+                    z_val = line.split(" ")[-1]
+
+                if z_val is None: continue
+                
+                datafile.write(f"{timestamp},{x_val},{y_val},{z_val}\n")
 
     except serial.SerialException as e:
         print(f"Error: {e}")
