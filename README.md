@@ -79,19 +79,22 @@ In the Arduino IDE, click on `Tools > Serial Monitor` and confirm that values ar
 
 - Using a **0.4mm nozzle** is recommended.
 
-> A smaller nozzle would allow for a better result when printing the whisker shafts - but would result in higher print times. Smaller nozzles have not been tested. Please avoid using nozzles larger than 0.4mm to ensure optimal precision and detail.
+> A smaller nozzle would allow for a better result when printing the whisker shafts - but would result in higher print times. 0.25mm nozzles have been tested only for printing the shaft. Not other small sizes have been tested. Please avoid using nozzles larger than 0.4mm to ensure optimal precision and detail.
 
 #### Slicer Settings
 
-***If users already have their own tuned profiles for their printers, then they can try those settings and use the guidance below for some additional advice on printing.***
+> We are assuming that the user has a basic understanding on how to navigate there own slicing software for their printer. Some good guides for getting familar with PrusaSlicer can be found from [Prusa's Knowledgebase](https://help.prusa3d.com/category/prusaslicer_204) and a nice TLDR-like guide from [Tomshardware](https://www.tomshardware.com/how-to/use-prusaslicer)
+
+> If users already have their own tuned profiles for their printers, then they can try those settings and use the guidance below for some additional advice on printing.
 
 We found the default `quality` settings (for 0.4mm nozzles) with supports enabled (tree/organics are fine to use, and can even result in a cleaner result) worked for printing, only requiring two modifications:
 
-> The `Whisker Shaft` should be printed with a **0.1mm** layer height.
+**The `Whisker Shaft` should be printed with a **0.1mm** layer height.**
 
-`XY Size Compensation` ensures the holes in the parts are printed with better dimensional accuracy when sliced, improving the fit of parts in each (e.g., Whisker Shaft into the Whisker Socket).
 
 **Setting `XY Size Compensation` in PrusaSlicer:**
+
+> `XY Size Compensation` ensures the holes in the parts are printed with better dimensional accuracy when sliced, improving the fit of parts in each (e.g., Whisker Shaft into the Whisker Socket).
 
 1. Navigate to the `Print Settings` Tab
 2. Enable `Expert` mode in the top write of the page
@@ -118,7 +121,7 @@ We found the default `quality` settings (for 0.4mm nozzles) with supports enable
    - Repeat this till both holes are as close to *true* as you can possibly and the socket has a snug, but loose enough, fit with the casting jig that it can be easily removed then you should be fine with not tuning the compensation.
 7. Repeat steps 1-6 until you achieve high dimensional accuracy and a snug fit
 
-The default PLA settings of the `Prusament PLA` filament profile may be used for all prints.
+The default PLA settings of the `Prusament PLA` filament profile was used for all prints.
 
 
 **Note:** You may find that the fit of the `Whisker Base` is too tight in the casting jig (even with the small chamfers in the design aimed to reduce this), and it is therefore recommended to scrape each of the outer edges of the print with a knife (or deburring tool) to deburr the edges and prevent sticking, in addition to the use of mold release agent. **It is especially important for the areas of the `Whisker Base` that were on the print bed and in contact with the brim when printing.**
@@ -127,10 +130,10 @@ The default PLA settings of the `Prusament PLA` filament profile may be used for
 
 To Build the whisker make sure you have printed:
 
-- 1 Whisker Base
-- 1 Whisker Socket
-- 1 Whisker Shaft
-- 1 Whisker Bearing Casting Jig
+- 1 x Whisker Base
+- 1 x Whisker Socket
+- 1 x Whisker Shaft
+- 1 x Whisker Bearing Casting Jig
 
 ![Build Guide Image](documentation/build_guide.png)
 
@@ -210,7 +213,7 @@ python whisker_listener.py /dev/ttyACM0
 [Calibration Platform](https://github.com/FoR-Group1/OpenWhisker/tree/main/calibration_platform) - 3D Printer Based Open Source Calibration
 Platform for Whisker Sensors.
 
-**DISCLAIMER: This platform has not been tested with the design presented in this repo, therefore modification may be required to use it for this design.**
+**DISCLAIMER: This platform has not been tested with the design presented in this repo, therefore modification may be required to use it for our design.**
 
 ## How to Contribute?
 
