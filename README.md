@@ -69,59 +69,59 @@ In the Arduino IDE, click on `Tools > Serial Monitor` and confirm that values ar
 
 ### Printing Guide
 
-> **`3mf`** project files can be imported directly into your slicing software (we recommend **PrusaSlicer**) for loading in all the part geometries required for printing a complete whisker assembly kit.
+- We provide all the **settings** for both the **Prusa MK3S** and **Prusa Mini** printers
 
-Other slicers have not been tested.
+> Other printers have not been tested.
 
-> We provide all the **settings** for both the **Prusa MK3S** and **Prusa Mini** printers
+- **`3mf`** project files can be imported directly into your slicing software (we recommend **PrusaSlicer**) for loading in all the part geometries required for printing a complete whisker assembly kit.
 
-Other printers have not been tested.
+> Other slicers have not been tested.
 
-> Using a **0.4mm nozzle** is recommended.
+- Using a **0.4mm nozzle** is recommended.
 
-A smaller nozzle would allow for a better result when printing the whisker shafts - but would result in higher print times.
-Smaller nozzles have not been tested.
-Please avoid using nozzles larger than 0.4mm to ensure optimal precision and detail.
-
-**Note:** You may find that the fit of the `Whisker Base` is too tight in the casting jig (even with the small chamfers in the design aimed to reduce this), and it is therefore recommended to scrape each of the outer edges of the print with a knife (or deburring tool) to deburr the edges and prevent sticking, in addition to the use of mold release agent. **It is especially important for the areas of the `Whisker Base` that were on the print bed and in contact with the brim when printing.**
+> A smaller nozzle would allow for a better result when printing the whisker shafts - but would result in higher print times. Smaller nozzles have not been tested. Please avoid using nozzles larger than 0.4mm to ensure optimal precision and detail.
 
 #### Slicer Settings
 
 ***If users already have their own tuned profiles for their printers, then they can try those settings and use the guidance below for some additional advice on printing.***
 
-We found the default `quality` settings (for 0.4mm nozzles) with supports enabled (tree/organics are fine to use too, and can even result in a cleaner result) worked for printing, only requiring two modifications:
+We found the default `quality` settings (for 0.4mm nozzles) with supports enabled (tree/organics are fine to use, and can even result in a cleaner result) worked for printing, only requiring two modifications:
 
 > The `Whisker Shaft` should be printed with a **0.1mm** layer height.
 
-> Set `XY Size Compensation`, or your slicer's equivalent setting, to **-0.1mm** - recommended starting point for tuning.
-
-`XY Size Compensation` ensures the holes in the parts are printed with better dimensional accuracy when sliced, improving the fit of parts in each (e.g., Whisker Shaft into the Whisker Socket). 
-
-**DISCLAIMER: DO NOT TAKE THIS TUNING APPROACH AS 'GOOD' ADVICE ON TUNING THIS SETTING FOR ALL PRINTS. IT IS ONLY SUGGESTED FOR PRINTING THESE PARTS AND MAY NOT HELP WITH ALL PRINTS.**
-
-**NOTE: You will need a method to measure an object's inside diameter accurately. We recommend using a set of vernier calipers.**
+`XY Size Compensation` ensures the holes in the parts are printed with better dimensional accuracy when sliced, improving the fit of parts in each (e.g., Whisker Shaft into the Whisker Socket).
 
 **Setting `XY Size Compensation` in PrusaSlicer:**
 
 1. Navigate to the `Print Settings` Tab
 2. Enable `Expert` mode in the top write of the page
-3. From the navigation bar on the left got to `Advanced`
+3. From the navigation bar on the left, go to `Advanced`
 4. Scroll down to till you get to the `Slicing` section where you will find `XY Size Compensation`.
+   - Set `XY Size Compensation`, or your slicer's equivalent setting, to **-0.1mm** as a recommended starting point for tuning.
 
 ![PrusaSlicer XY Compenstation](documentation/xy_compensation_prusaslicer.png)
+
+##### Tuning XY Size Compensation
+
+**DISCLAIMER: DO NOT TAKE THIS TUNING APPROACH AS 'GOOD' ADVICE ON TUNING THIS SETTING FOR ALL PRINTS. IT IS ONLY SUGGESTED FOR PRINTING THESE PARTS AND MAY NOT HELP WITH ALL PRINTS.**
+
+**NOTE: You will need a method to measure an object's inside diameter accurately. We recommend using a set of vernier calipers.**
 
 1. Print a `Whisker Bearing Casting Jig`
 2. Print a `Whisker Socket`
 3. Ensure the smaller hole of the `Whisker Socket` is approx. `3mm` in diameter
 4. Ensure the larger hole of the `Whisker Socket` is approx. `5mm` in diameter
-<!-- 5. If the measurements are as close to "perfect" to the *true* values and the socket has a snug, but loose enough, fit with the casting jig that it can be easily removed then you should be fine with not tuning the compensation. -->
-5. Set `XY Size Compensation` to `Measured - Expected` 
+   - If the measurements are as close to "perfect" as the *true* values and the socket is snug but loose enough to fit with the casting jig that it can be easily removed, you should be fine with not tuning the compensation.
+5. Set `XY Size Compensation` to `Measured - Expected`
    - Example: measured diameter `2.9mm`, expected diameter `3.0mm`, therefore we set the compensation value to `-0.1mm`
 6. Ensure `Whisker Bearing Casting Jig` has a snug fit
-<!-- 7. Repeat this till both holes are as close to *true* as you can possibly and the socket has a snug, but loose enough, fit with the casting jig that it can be easily removed then you should be fine with not tuning the compensation. -->
+   - Repeat this till both holes are as close to *true* as you can possibly and the socket has a snug, but loose enough, fit with the casting jig that it can be easily removed then you should be fine with not tuning the compensation.
 7. Repeat steps 1-6 until you achieve high dimensional accuracy and a snug fit
 
 The default PLA settings of the `Prusament PLA` filament profile may be used for all prints.
+
+
+**Note:** You may find that the fit of the `Whisker Base` is too tight in the casting jig (even with the small chamfers in the design aimed to reduce this), and it is therefore recommended to scrape each of the outer edges of the print with a knife (or deburring tool) to deburr the edges and prevent sticking, in addition to the use of mold release agent. **It is especially important for the areas of the `Whisker Base` that were on the print bed and in contact with the brim when printing.**
 
 ### Whisker Build Instructions
 
