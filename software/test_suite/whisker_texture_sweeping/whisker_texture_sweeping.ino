@@ -41,6 +41,7 @@ void loop() {
       while(stepper.run()){  // Run the stepper motor
         //Wait till move is done
       };
+      delay(100);
     }
   }
 }
