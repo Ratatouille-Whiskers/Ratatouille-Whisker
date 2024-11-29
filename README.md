@@ -2,6 +2,8 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11080462.svg)](https://doi.org/10.5281/zenodo.11080462)
 
+[![Watch the video](https://img.youtube.com/vi/xYr4nw6rwZE/0.jpg)](https://www.youtube.com/watch?v=xYr4nw6rwZE)
+
 ## Bill of Materials
 
 | Part                | Description                                                                                                                                                                  | Quantity | Cost    |
